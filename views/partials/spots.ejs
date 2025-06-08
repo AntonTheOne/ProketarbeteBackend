@@ -1,0 +1,12 @@
+<section class="spots-container">
+  <div class="spots-grid">
+    <% spots.forEach(spot => { %>
+      <div class="spot-card">
+        <a href="/">
+          <img src="<%= spot.image_url %>" alt="spot image">
+          <h3><%= spot.description %></h3>
+        </a>
+      </div>
+    <% }) %>
+  </div>
+</section>

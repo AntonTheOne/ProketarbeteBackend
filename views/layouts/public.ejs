@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+  <meta charset="UTF-8">
+  <title>
+    <%= title %>
+  </title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <div class="hela-hedder">
+      <a href="/">
+        <img class="logga" src="https://placehold.co/640x100.png" alt="Logotyp">
+      </a>
+
+      <div class="header-container">
+        <i class="bi bi-search custom-icon" style="font-size: 1.75rem;"></i>
+        <div class="flex-grow-row">
+          <form>
+            <input class="sok_bar" type="text" name="query" placeholder="Sök här...">
+          </form>
+        </div>
+        <div class="icons">
+          <i class="bi bi-heart-fill" style="font-size: 2rem; color: black;"></i>
+          <a href="/"> <i class="bi bi-cart" style="font-size: 2rem; color: black"></i></a>
+        </div>
+      </div>
+
+
+    </div>
+
+  </header>
+
+  <ul class="nav-links">
+    <li>Nyheter</li>
+    <li>Topplistan</li>
+    <li>Rea</li>
+    <li>Kampanjer</li>
+  </ul>
+
+  <main>
+    <%- body %>
+  </main>
+
+
+  <footer class="fotter">
+    <div class="fotter-container">
+      <div class="globe">
+        <i class="bi bi-globe"></i>
+        <p>Gratis frakt och returer</p>
+      </div>
+      <div class="globe">
+        <i class="bi bi-airplane-engines"></i>
+        <p>Expressfrakt</p>
+      </div>
+      <div class="globe">
+        <i class="bi bi-shield"></i>
+        <p>Säkra betalningar</p>
+      </div>
+      <div class="globe">
+        <i class="bi bi-emoji-smile"></i>
+        <p>Nyheter varje dag</p>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <details class="accordion-item">
+        <summary class="accordion-header">Shopping</summary>
+        <div class="accordion-content">
+          <p>Vinterjackor</p>
+          <p>Pufferjackor</p>
+          <p>Kappa</p>
+          <p>Trenchcoats</p>
+        </div>
+      </details>
+
+      <details class="accordion-item">
+        <summary class="accordion-header">Mina Sidor</summary>
+        <div class="accordion-content">
+          <p>Mina Ordrar</p>
+          <p>Mitt Konto</p>
+        </div>
+      </details>
+
+      <details class="accordion-item">
+        <summary class="accordion-header">Kundtjänst</summary>
+        <div class="accordion-content">
+          <p>Returnpolicy</p>
+          <p>Intergritetesplicy</p>
+        </div>
+      </details>
+    </div>
+
+      <div class="footer-menu">
+    <div class="menu-column">
+      <h3>Shopping</h3>
+      <ul>
+        <li>Vinterjackor</li>
+        <li>Pufferjackor</li>
+        <li>Kappa</li>
+        <li>Trenchcoats</li>
+      </ul>
+    </div>
+    <div class="menu-column">
+      <h3>Mina Sidor</h3>
+      <ul>
+        <li>Mina Ordrar</li>
+        <li>Mitt Konto</li>
+      </ul>
+    </div>
+    <div class="menu-column">
+      <h3>Kundtjänst</h3>
+      <ul>
+        <li>Returnpolicy</li>
+        <li>Intergritetesplicy</li>
+      </ul>
+    </div>
+  </div>
+     <p class="coopy">&copy; Freaky Fashion</p>
+  </footer>
+</body>
+
+</html>
