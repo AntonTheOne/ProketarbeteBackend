@@ -1,0 +1,100 @@
+<section class="cart-div-section">
+  <% if (cart && cart.length > 0) { %>
+    <% cart.forEach(item => { %>
+      <div class="cart-div-card">
+        <div class="cart-div-top">
+          <span class="cart-div-title"><%= item.title %></span>
+          <span class="cart-div-totalpris"><%= (item.price * item.quantity).toFixed(2) %> SEK</span>
+        </div>
+        <div class="cart-dic-bottom">
+          <span class="cart-div-pris"><%= item.price.toFixed(2) %> SEK</span>
+          <div class="cart-div-till">
+            <form method="POST">
+              <input type="hidden" name="id" value="<%= item.id %>" />
+              <select name="quantity" class="cart-div-select" onchange="this.form.submit()">
+                <% for (let i = 1; i <= 99; i++) { %>
+                  <option value="<%= i %>" <%= item.quantity === i ? 'selected' : '' %>><%= i %></option>
+                <% } %>
+              </select>
+            </form>
+            <form method="POST">
+              <input type="hidden" name="id" value="<%= item.id %>" />
+              <input type="hidden" name="quantity" value="0" />
+              <button class="trash-button" type="submit" aria-label="Ta bort produkt">
+                <i class="bi bi-trash div-trash"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  <% } else { %>
+    <div class="cart-div-card">
+     <p>Din varukorg är tom.</p> 
+    </div>
+    
+  <% } %>
+</section>
+
+
+
+
+
+
+
+<table class="cart-table">
+  <thead class="cart-table-head">
+    <tr class="cart-table-row">
+      <th class="cart-table-header">Produkt</th>
+      <th class="cart-table-header">Pris</th>
+      <th class="cart-table-header">Totalt</th>
+      <th class="cart-table-header">Antal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if (cart && cart.length> 0) { %>
+      <% cart.forEach(item=> { %>
+        <tr class="cart-table-row">
+          <td class="cart-table-cell">
+            <%= item.title %>
+          </td>
+          <td class="cart-table-cell">
+            <%= item.price.toFixed(2) %> kr
+          </td>
+          <td class="cart-table-cell">
+            <%= (item.price * item.quantity).toFixed(2) %> kr
+          </td>
+          <td class="cart-table-cell">
+          <div class="cart-antal">
+            <div class="cart-valj-antal">
+              <form method="POST">
+              <input type="hidden" name="id" value="<%= item.id %>" />
+              <select name="quantity" class="cart-select" onchange="this.form.submit()">
+                <% for(let i=1; i <=99; i++) { %>
+                  <option value="<%= i %>" <%= (item.quantity == i) ? 'selected' : '' %>><%= i %></option>
+                  <% } %>
+              </select>
+            </form>
+            </div>
+            <form method="POST">
+              <input type="hidden" name="id" value="<%= item.id %>" />
+              <input type="hidden" name="quantity" value="0" />
+              <button class="trash-button" type="submit" aria-label="Ta bort produkt">
+                <i class="bi bi-trash from-trash"></i>
+              </button>
+            </form>
+          </div>
+          </td>
+        </tr>
+        <% }) %>
+          <% } else { %>
+            <tr>
+              <td class="cart-table-cell" colspan="4">Din varukorg är tom.</td>
+            </tr>
+            <% } %>
+  </tbody>
+</table>
+
+<div class="cart-button-container">
+    <a href="checkout"> <button type="submit" class="cart-button">Till kassan</button></a>
+</div>

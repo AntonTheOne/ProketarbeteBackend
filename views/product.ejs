@@ -1,22 +1,71 @@
-
-
 <section class="product-info-container">
   <div class="product-info-grid">
     
     <div class="product-image-wrapper">
       <i class="bi bi-heart heart-featured"></i>
-       <img class="product-bild" src="https://placehold.co/300x400.png" alt="Produktbild">
+       <img class="product-bild" src="<%= product.image_url %>" alt="Produktbild">
     </div>
 
     <div class="product-info-text">
-      <h1 class="product-info-title">Lorem</h1>
-      <p class="product-info-brnad">Levis</p>
+      <h1 class="product-info-title"><%= product.title %></h1>
+      <p class="product-info-brnad"><%= product.brand %></p>
       <p class="product-info-description">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima eligendi ut nisi enim, fuga quibusdam neque assumenda magnam dolorem, quis voluptates! Eligendi repellendus adipisci voluptatibus similique? Expedita in ab animi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui aliquam numquam animi nulla obcaecati aliquid eius, quisquam reprehenderit repellat corrupti rem blanditiis quo totam accusamus incidunt, quia, deserunt corporis! Autem!
+        <%= product.description %>
       </p>
-      <p class="product-info-price">199 SEK</p>
-      <button class="product-info-button">Lägg i varukorg</button>
+      <p class="product-info-price"><%= product.price %> SEK</p>
+      <form method="post">
+         <button type="submit"  class="product-info-button"><%= korg %></button>
+      </form>
+
+     
     </div>
 
   </div>
 </section>
+
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="false">
+
+  <h1 class="liknade-produkter">Liknande produkter</h1>
+  <div class="carousel-inner">
+
+    <% for (let i = 0; i < otherProducts.length; i += 3) { 
+         const slideProducts = otherProducts.slice(i, i + 3);
+    %>
+    <div class="carousel-item <%= i === 0 ? 'active' : '' %>">
+      <div class="d-flex justify-content-center gap-3">
+
+        <% slideProducts.forEach(item => { %>
+        <div class="slider-item">
+          <a href="/product/<%= item.slug %>">
+            <img src="<%= item.image_url %>" class="carousel-image" alt="<%= item.title %>">
+          </a>
+          <p class="slider-text">
+            <div class="product-meta">
+              <div class="top-row">
+                <span class="titel"><%= item.title %></span>
+                <span class="pris"><%= item.price %> SEK</span>
+              </div>
+              <span class="brand"><%= item.brand %></span>
+            </div>
+          </p>
+        </div>
+        <% }) %>
+
+      </div>
+    </div>
+    <% } %>
+
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Föregående</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Nästa</span>
+  </button>
+</div>
+
+<h1>Din varukorg</h1>
+

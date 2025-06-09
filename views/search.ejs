@@ -1,0 +1,31 @@
+<section class="search-results-container">
+  <div class="search-funna">
+    <h2>Hittade <%= products.length %> produkter</h2>
+  <% if (products.length === 0) { %>
+    <p>Inga produkter matchade din sökning.</p>
+  <% } else { %>
+  </div>
+    <div class="product-grid">
+      <% products.forEach(product => { %>
+        <div class="product-card">
+          <a href="/product/<%= product.slug %>">
+            <% if (product.isNew) { %>
+              <div class="nyhet">
+                <p>Nyhet</p>
+              </div>
+            <% } %>
+            <i class="bi bi-heart heart"></i>
+            <img class="product-bild" src="<%= product.image_url %>" alt="Bild på <%= product.title %>">
+            <div class="product-meta">
+              <div class="top-row">
+                <span class="titel"><%= product.title %></span>
+                <span class="pris"><%= product.price %> SEK</span>
+              </div>
+              <span class="brand"><%= product.brand %></span>
+            </div>
+          </a>
+        </div>
+      <% }) %>
+    </div>
+  <% } %>
+</section>

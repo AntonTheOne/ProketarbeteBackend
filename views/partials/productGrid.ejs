@@ -1,0 +1,24 @@
+<section class="product-container">
+  <div class="product-grid">
+    <% products.slice(0, 8).forEach(product => { %>
+      <div class="product-card">
+        <a href="/product/<%= product.slug %>">
+          <% if (product.isNew) { %>
+            <div class="nyhet">
+              <p>Nyhet</p>
+            </div>
+          <% } %>
+          <i class="bi bi-heart heart"></i>
+          <img class="product-bild" src="<%= product.image_url %>" alt="Produktbild">
+          <div class="product-meta">
+            <div class="top-row">
+              <span class="titel"><%= product.title %></span>
+              <span class="pris"><%= product.price %> SEK </span>
+            </div>
+            <span class="brand"><%= product.brand %></span>
+          </div>
+        </a>
+      </div>
+    <% }) %>
+  </div>
+</section>

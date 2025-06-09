@@ -1,0 +1,59 @@
+<section class="admin-form">
+  <h2>Ny produkt</h2>
+  <form action="/admin/products" method="POST" enctype="multipart/form-data">
+    
+    <div class="admin-name">
+      <label for="name">Namn</label><br />
+      <input type="text" id="name" name="name" maxlength="35" placeholder="Ange namn" required>
+    </div>
+    
+    <div class="admin-description">
+      <label for="description">Beskrivning</label><br />
+      <textarea id="description" name="description" rows="5" placeholder="Ange beskrivning"></textarea>
+    </div>
+    
+    <div class="admin-image">
+      <label for="image">Bild</label><br />
+      <input type="file" id="image" name="image" accept="image/*"  required>
+      <button type="button" onclick="document.getElementById('image').click()">Välj bild</button>
+      <span id="selected-image-name" ></span>
+    </div>
+    
+    <div class="admin-brand">
+      <label for="brand">Märke</label><br />
+      <input type="text" id="brand" name="brand">
+    </div>
+    
+    <div class="admin-sku">
+      <label for="sku">SKU</label><br />
+      <input type="text" id="sku" name="sku" pattern="[A-Za-z]{3}[0-9]{3}" placeholder="Ange SUK" required>
+    </div>
+    
+    <div class="admin-price">
+      <label for="price">Pris</label><br />
+      <input type="number" id="price" name="price" min="0" >
+    </div>
+    
+    <div class="admin-published">
+      <label for="published_at">Publiceringsdatum</label><br />
+      <input type="date" id="published_at" name="published_at">
+    </div>
+    
+    <div class="admin-submit">
+      <button type="submit">Lägg till</button>
+    </div>
+  </form>
+</section>
+
+<script>
+  const fileInput = document.getElementById('image');
+  const fileNameSpan = document.getElementById('selected-image-name');
+
+  fileInput.addEventListener('change', () => {
+    if (fileInput.files.length > 0) {
+      fileNameSpan.textContent = fileInput.files[0].name;
+    } else {
+      fileNameSpan.textContent = '';
+    }
+  });
+</script>

@@ -1,0 +1,100 @@
+<section class="cart-div-section">
+  <% if (cart && cart.length > 0) { %>
+    <% cart.forEach(item => { %>
+      <div class="cart-div-card">
+        <div class="cart-div-top">
+          <span class="cart-div-title"><%= item.title %></span>
+          <span class="cart-div-totalpris"><%= (item.price * item.quantity).toFixed(2) %> SEK</span>
+        </div>
+        <div class="cart-dic-bottom">
+          <span class="cart-div-pris"><%= item.price.toFixed(2) %> SEK</span>
+          <div class="cart-div-till">
+            
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  <% } else { %>
+    <div class="cart-div-card">
+     <p>Din varukorg är tom.</p> 
+    </div>
+    
+  <% } %>
+</section>
+
+<table class="cart-table">
+  <thead class="cart-table-head">
+    <tr class="cart-table-row">
+      <th class="cart-table-header">Produkt</th>
+      <th class="cart-table-header">Pris</th>
+      <th class="cart-table-header">Totalt</th>
+      <th class="cart-table-header">Antal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if (cart && cart.length> 0) { %>
+      <% cart.forEach(item=> { %>
+        <tr class="cart-table-row">
+          <td class="cart-table-cell">
+            <%= item.title %>
+          </td>
+          <td class="cart-table-cell">
+            <%= item.price.toFixed(2) %> kr
+          </td>
+          <td class="cart-table-cell">
+            <%= (item.price * item.quantity).toFixed(2) %> kr
+          </td>
+          <td class="cart-table-cell">
+          <div class="cart-antal">
+            <div class="cart-valj-antal">
+               <%= item.quantity %> 
+            </div>
+          </div>
+          </td>
+        </tr>
+        <% }) %>
+          <% } else { %>
+            <tr>
+              <td class="cart-table-cell" colspan="4">Din varukorg är tom.</td>
+            </tr>
+            <% } %>
+  </tbody>
+</table>
+
+<section class="kundupp-section">
+   <form method="post" class="kundupp-from">
+    <div class="kundupp-latt">
+      <div class="kundupp">
+        <p>Förnamn</p>
+        <input type="text" id="fnamn" name="fnamn"  required>
+      </div>
+      <div class="kundupp" id="enamn">
+        <p>Efternamn</p>
+        <input type="text" id="enamn" name="enamn">
+      </div>
+      <div class="kundupp" id="email">
+        <p>E-post</p>
+        <input type="email" id="email" name="email" required >
+      </div>
+    </div>
+    <fieldset class="addres">
+       <legend class="legend">Address</legend>
+      <div class="kundupp-gata">
+        <p>Gata</p>
+        <input type="text" id="gata" name="gata" required>
+      </div>
+      <div class="kundupp-post">
+        <p>Postnummer</p>
+        <input type="number" id="postnr" name="postnr"  required>
+      <div class="kundupp-stad">
+        <p>Stad</p>
+        <input type="text" id="stad" name="stad" required>
+      </div>
+    </fieldset>
+    <div class="nybrev">
+      <input class="checkbox" type="checkbox" name="nyhetsbrev"> Jag vill ta emot nyhetsbrev
+    </div>
+    
+    <button  class="checkout-botten" type="submit">Köp</button>
+  </form>
+</section>

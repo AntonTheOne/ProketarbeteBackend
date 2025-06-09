@@ -4,13 +4,32 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var expressLayouts = require('express-ejs-layouts');
-var productsRouter = require('./routes/products');
+var productRouter = require('./routes/products');
 var spotsRouter = require('./routes/spots');
+var session = require('express-session');
+var cartRouter = require('./routes/cart');
+var checkoutRouter = require('./routes/checkout');
+var confirmationRouter = require('./routes/confirmation')
+var searchRouter = require('./routes/search');
+var adminRouter = require('./routes/admin');
+
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+
+app.use(session({
+  secret: 'supersecretrandomstring',
+  resave: false,
+  saveUninitialized: true
+}));
+
+app.use((req, res, next) => {
+  res.locals.session = req.session;
+  next();
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -26,20 +45,20 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+// Define routes
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/products', productsRouter);
+app.use('/product', productRouter);
 app.use('/spots', spotsRouter);
+app.use('/cart', cartRouter);
+app.use('/checkout', checkoutRouter);
+app.use('/confirmation', confirmationRouter);
+app.use('/search', searchRouter);
+app.use('/admin', adminRouter);
 
-// products-info med id
-app.get('/product/:title', (req, res) => {
-  const productTitle = req.params.title;
 
-  res.render('product', {
-    title: `Produkt ${productTitle}`,
-    productId: productTitle,
-  });
-});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

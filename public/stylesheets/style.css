@@ -5,15 +5,31 @@
 }
 
 body {
-  padding: 0;
-
+  display: flex;
+  flex-direction: column;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+
+}
+
+.wrapper{
+
+  flex: 1 0 auto;
+
 }
 
 a{
   color: black;
   text-decoration: none;
+  
 }
+
+a:hover{
+  color: black;
+  text-decoration: none;
+}
+
+
 .logga {
   width: 100%;
   height: auto;
@@ -65,6 +81,8 @@ a{
   padding: 1rem;
   margin: 0rem;
 }
+
+
 
 .fotter-container {
   display: flex;
@@ -121,6 +139,7 @@ a{
 
 .coopy {
   text-align: center;
+  margin: 1rem;
 }
 
 .footer-menu{
@@ -129,7 +148,6 @@ a{
 
 .hero-container {     
   margin: 0 1rem;  
-  margin-bottom: 5rem;
   padding: 20px;          
   border: 2px solid black;  
   text-align: center;      
@@ -159,7 +177,7 @@ a{
 
 .product-grid{
   display: grid;
-  margin-top: -4rem ;
+
   
 }
 
@@ -175,7 +193,7 @@ a{
   background-color: rgb(32, 32, 32);
   color: white;
   border-radius: 0.5rem;
-  padding: 0.75rem 1rem;
+  padding: 1rem 1rem 0rem; 
   width: auto; 
   z-index: 15; 
 }
@@ -226,6 +244,7 @@ a{
 
 .spots-container{
   display: none;
+
 }
 
 .product-info-container {
@@ -296,7 +315,484 @@ a{
 }
 
 
+.carousel.slide {
+  display: none;
+}
+
+.liknade-produkter{
+  text-align: center;
+  margin: 2rem;
+}
+
+.cart-button-container {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.cart-button {
+  background-color: white;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.5rem;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+}
+
+.cart-table{
+  display: none;
+}
+
+.cart-div-section{
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  
+  
+}
+
+.cart-div-top{
+  display: flex;
+}
+
+.cart-div-title{
+  flex-grow: 1;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.cart-div-totalpris{
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.cart-dic-bottom{
+  display: flex;
+   padding-top: 1rem;
+}
+
+.cart-div-pris {
+  flex-grow: 1;
+ 
+}
+
+.cart-div-select{
+  padding: 0.2rem;
+  border-radius: 4px;
+  border: 1px solid black;
+  font-size: 0.90rem;
+  background-color: white;
+  width: 100%;
+  border-radius: 0.5rem;
+ 
+}
+
+.div-trash{
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.cart-div-till {
+  display: flex;
+}
+
+.cart-div-card{
+  border: 1px solid black;
+  margin-bottom: 0;
+  padding: 0.5rem;
+}
+
+.trash-button{
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  color: inherit;
+}
+
+.kundupp-section{
+  margin: 1rem;
+}
+
+.kundupp-from{
+  display: grid;
+  grid-template-columns:  1fr; 
+  align-items: center; 
+}
+
+.kundupp{
+  margin-bottom: 1rem;
+ 
+}
+
+.kundupp-gata{
+  margin-bottom: 1rem;
+ 
+}
+
+.kundupp-gata input{
+  width: 100%;
+  border: 1px solid black;
+ 
+}
+
+.kundupp-post{
+  margin-bottom: 1rem;
+ 
+}
+
+.kundupp-post input{
+  border: 1px solid black;
+}
+
+.kundupp-stad{
+  margin-bottom: 1rem;
+}
+
+.kundupp-stad input{
+  width: 100%;
+  border: 1px solid black;
+}
+
+.kundupp input{
+  width: 100%;
+  border: 1px solid black;
+}
+
+.addres{
+  position: relative;
+  border: 1px solid black;
+  margin: 1rem 0;
+  padding: 0.75rem;
+  padding-top: 1.5rem;
+}
+
+.checkbox{
+   justify-self: start;
+}
+
+.nybrev{
+  margin: 1.5rem 0;
+  font-size: 1rem;
+}
+
+.legend{
+  background-color: white;
+  width: 5rem;
+  font-size: 1.3rem;
+  position: absolute;
+  top: -0.75rem;
+
+}
+
+.checkout-botten {
+  background-color: white;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.5rem;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  width: 20rem;
+  display: block;          
+  margin: 0 auto;        
+}
+
+
+
+.oderbek h1 {
+  text-align: center;
+  font-size: 2.5rem; /* Större text */
+  margin-bottom: 1rem; /* Lite space under rubriken */
+}
+
+.oderbek p {
+  text-align: left;
+  margin-left: 1rem;
+  padding-top: 2rem;
+}
+
+.search-results-container{
+  margin: 1rem;
+}
+
+.search-header h1{
+  justify-content: center;
+}
+
+.search-funna{
+  text-align: center;
+  
+}
+
+.admin-header{
+  background-color: rgb(56, 56, 56);
+  color: white;
+  padding: 1rem;
+  height: 10vh;
+}
+
+.admin-body{
+  height: 100%;
+}
+
+.admin-container{
+  display: flex;
+  height: 90vh;
+}
+
+.admin-sider{
+  background-color: lightgray;
+  border: 2px solid black;
+  width: 10rem;
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+.admin-main{
+  flex-grow: 1;
+}
+
+.admin-tabel-grid {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+
+}
+
+.admin-top{
+  margin-bottom: 1rem;
+  display: flex;
+}
+
+.admin-button{
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  background-color: white;
+  font-size: 1rem;
+}
+
+.admin-top h1{
+  flex-grow: 1;
+}
+
+.admin-tabel-grid h1 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.admin-table {
+  min-width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table thead {
+  background-color: gray;
+  color: black;
+}
+
+.admin-table th,
+.admin-table td {
+  border: 2px solid black;
+  padding: 12px 15px;
+  text-align: left;
+}
+
+.admin-trash{
+  color: black;
+  font-size: 1rem;
+}
+
+.admin-table th:nth-child(1),
+.admin-table td:nth-child(1) {
+  width: 50%;
+}
+
+.admin-table th:nth-child(2),
+.admin-table td:nth-child(2) {
+  width: 20%;
+}
+
+.admin-table th:nth-child(3),
+.admin-table td:nth-child(4) {
+  width: 20%;
+}
+
+.admin-form{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1rem;
+  font-size: 1rem;
+}
+
+.admin-form label{
+  margin: 1rem 0;
+}
+
+
+.admin-name{
+  margin:  0.5rem 0;
+}
+
+.admin-image input {
+  display: none;
+}
+
+.admin-name input{
+  width: 10rem;
+  padding: 0.25rem;
+  border: 1px solid black;
+}
+
+
+.admin-description textarea{
+  width: 20rem;
+  border: 1px solid black;
+  padding: 0.25rem;
+
+}
+
+.admin-brand input{
+  width: 20rem;
+  border: 1px solid black;
+  padding: 0.25rem;
+}
+
+.admin-sku input{
+  width: 6rem;
+  border: 1px solid black;
+  padding: 0.25rem;
+}
+
+.admin-price input{
+  width: 6rem;
+  border: 1px solid black;
+  padding: 0.25rem;
+}
+
+.admin-published input{
+  width: 10rem;
+  border: 1px solid black;
+  padding: 0.25rem;
+}
+
+
+.admin-form button{
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  background-color: white;
+  font-size: 1rem;
+}
+
+
+
+
 @media (min-width: 640px){
+
+.cart-div-section{
+  display: none;
+}
+
+.kundupp-latt{
+  display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   gap: 0.5rem;
+}
+
+.kundupp-stad input{
+  width: 50% ;
+}
+
+.cart-table {
+  display: table;
+  width: calc(100vw - 4rem);
+  margin: 2rem;
+  border: 2px solid black;
+  background-color: lightgray;
+  border-collapse: collapse;
+}
+.cart-table-head {
+  background-color: gray;
+  color: black;
+}
+
+.cart-table-header {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 2px solid black;
+  border-right: 2px solid black; 
+}
+
+
+.cart-table-header:last-child {
+  border-right: none;
+}
+
+.cart-table-cell {
+  padding: 1rem;
+  border-bottom: 2px solid black;
+  border-right: 2px solid black; 
+}
+
+.cart-table-row td:nth-child(1){
+  width: 45%;
+}
+
+
+.cart-table-cell:last-child {
+  border-right: none;
+}
+
+.cart-select {
+   padding: 0.7rem;
+  border-radius: 4px;
+  border: 1px solid black;
+  font-size: 0.90rem;
+  background-color: white;
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+
+
+.cart-valj-antal{
+  flex-grow: 1;
+}
+
+.from-trash{
+  font-size: 2rem;
+}
+
+  .carousel.slide {
+  display: block;
+}
+
+  #carouselExampleControls {
+  margin: 1rem;
+}
+
+.carousel-inner .d-flex {
+  justify-content: space-between; 
+}
+
+.slider-item {
+  flex: 1 1 calc((100% - 2rem) / 3); 
+  display: flex;
+  flex-direction: column;
+  margin: 0 0.5rem; 
+}
+
+.cart-antal{
+  display: flex;
+
+  }
+
+.carousel-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+
+}
+
 
   .product-grid > .product-card:nth-child(n+5) {
     display: grid;
@@ -368,9 +864,21 @@ a{
     align-items: center;
     gap: 1rem;
     font-size: 1.5rem;
-  
+  }
 
-}
+  .product-info-grid{
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+
+  .product-info-button{
+    width: 10rem;
+  }
+
+  .heart-featured{
+    display: none;
+  }
 }
 
 
@@ -401,8 +909,7 @@ a{
   .spots-container {
   display: block;
   margin: 1rem;
-  margin-bottom: 5rem;
-  margin-top: -4rem;
+  margin-bottom: 1rem;
 }
 
 .spots-grid {
@@ -413,7 +920,7 @@ a{
 .spot-card {
   position: relative;
   flex: 1; 
-  max-width: 20rem; /* Maxbredd, justera efter behov */
+  max-width: 20rem;
 }
 
 .spot-card img {
@@ -430,6 +937,19 @@ a{
   color: black;
   font-size: 1.1rem;
   
+}
+
+.kundupp-latt{
+  width: 66%;
+
+}
+
+.kundupp-gata input{
+   width: 66%;
+}
+
+.kundupp-stad input{
+  width: 33%;
 }
 
 }

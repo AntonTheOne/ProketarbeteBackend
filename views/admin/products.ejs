@@ -1,0 +1,36 @@
+<div class="admin-tabel-grid">
+  <div class="admin-top">
+    <h1>Produkter</h1>
+    <a href="/admin/products/new">
+      <button class="admin-button">Ny produkt</button>
+    </a>
+  </div>
+  <table class="admin-table">
+  <thead>
+    <tr>
+      <th>Produktnamn</th>
+      <th>SKU</th>
+      <th>Pris (kr)</th>
+      <th>Välj</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% products.forEach(product => { %>
+      <tr>
+        <td><%= product.title %></td>
+        <td><%= product.sku || 'Ej satt' %></td>
+        <td><%= product.price %></td>
+        <td>
+          <form action="/admin/products/<%= product.id %>/delete" method="POST">
+            <button type="submit" class="btn btn-link p-0" title="Ta bort produkt">
+              <i class="bi bi-trash admin-trash"></i>
+            </button>
+          </form>
+        </td>
+  
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+</table>
+</div>

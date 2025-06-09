@@ -23,10 +23,11 @@ router.get('/', (req, res) => {
   const spots = db.prepare('SELECT * FROM spots').all();
 
   res.render('index', {
-    title: 'Hem',
+    title: 'Freaky Fashion',
     hero,
     products,
-    spots
+    spots,
+  
   });
 });
 
