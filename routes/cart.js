@@ -30,7 +30,7 @@ router.post('/', (req, res) => {
     }
   }
 
-  console.log('Uppdaterad korg:', req.session.cart);
+
 
   res.redirect('back');
 });

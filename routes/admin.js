@@ -47,8 +47,7 @@ router.post('/products/:id/delete', (req, res) => {
 
   const stmt = db.prepare('DELETE FROM products WHERE id = ?');
   const info = stmt.run(id);
-
-  console.log(`Deleted ${info.changes} row(s) with id ${id}`);
+1
 
   res.redirect('/admin/products');
 });
@@ -87,7 +86,7 @@ router.post('/products', upload.single('image'), async (req, res) => {
 
   stmt.run(name, description, price, imageUrl, brand, published_at, slug, sku);
 
-  console.log('Produkt tillagd:', { name, description, price, imageUrl, brand, published_at, slug, sku });
+
 
   res.redirect('/admin/products');
 });

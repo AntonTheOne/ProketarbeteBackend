@@ -10,6 +10,7 @@ router.get('/:slug', (req, res) => {
   const product = db.prepare('SELECT * FROM products WHERE slug = ?').get(productSlug);
   const otherProducts = db.prepare('SELECT * FROM products WHERE slug != ? LIMIT 6').all(productSlug);
   
+
   
   res.render('product', {
     title: product.title,
@@ -44,8 +45,6 @@ router.post('/:slug', (req, res) => {
     });
   }
 
-  // Logga korgen i terminalen
-  console.log("Nuvarande korg:", req.session.cart);
 
   res.redirect('back');
 });
