@@ -50,8 +50,14 @@
   const fileNameSpan = document.getElementById('selected-image-name');
 
   fileInput.addEventListener('change', () => {
-    if (fileInput.files.length > 0) {
-      fileNameSpan.textContent = fileInput.files[0].name;
+    const file = fileInput.files[0];
+    if (file) {
+      if (file.type.startsWith('image/')) {
+        fileNameSpan.textContent = file.name;
+      } else {
+        fileInput.value = ''; // Töm filvalet
+        fileNameSpan.textContent = '';
+      }
     } else {
       fileNameSpan.textContent = '';
     }
